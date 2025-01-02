@@ -1,0 +1,19 @@
+services:
+  clearervoice:
+    container_name: clearervoice-denoiser
+    image: dinohub-asr/clearervoice-denoiser:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #env_file: .env.dev
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - $PWD/data:/workdir/data

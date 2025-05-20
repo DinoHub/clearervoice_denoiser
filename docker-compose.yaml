@@ -1,7 +1,6 @@
 services:
   clearervoice:
     container_name: clearervoice-denoiser
-    # image: dinohub-asr/clearervoice-denoiser:0.0.1
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,6 +15,5 @@ services:
               count: 1
               capabilities: [gpu]
     volumes:
-      # - $PWD/data:/workdir/data
       - $PWD:/workdir
       - /mnt/d/MEGAN/data:/datasets

@@ -28,10 +28,6 @@ RUN python -m venv /venv && \
 
 ENV PATH="/venv/bin:${PATH}"
 
-# WORKDIR /workdir
-# ADD /clearvoice /workdir/clearvoice
-
 WORKDIR /workdir/clearvoice
-# RUN ["python", "-c", "from clearvoice import ClearVoice", "ClearVoice(task='speech_enhancement', model_names=['MossFormer2_SE_48K'])"]
 
 ENTRYPOINT ["bash"]
